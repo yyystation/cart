@@ -1,4 +1,4 @@
-module go.micro.service.cart
+module github.com/yyystation/cart
 
 go 1.18
 

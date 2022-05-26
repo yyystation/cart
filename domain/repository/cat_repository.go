@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/jinzhu/gorm"
-	"go.micro.service.cart/domain/model"
+	"github.com/yyystation/cart/domain/model"
 )
 
 type ICartRepository interface {

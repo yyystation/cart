@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	cart "go.micro.service.cart/proto"
+	cart "github.com/yyystation/cart/proto"
 
 	"github.com/go-micro/plugins/v4/registry/consul"
 	ratelimit "github.com/go-micro/plugins/v4/wrapper/ratelimiter/uber"
@@ -12,13 +12,13 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/opentracing/opentracing-go"
+	"github.com/yyystation/cart/domain/repository"
+	service2 "github.com/yyystation/cart/domain/service"
+	"github.com/yyystation/cart/handler"
 	"github.com/yyystation/common"
 	"go-micro.dev/v4"
 	log "go-micro.dev/v4/logger"
 	"go-micro.dev/v4/registry"
-	"go.micro.service.cart/domain/repository"
-	service2 "go.micro.service.cart/domain/service"
-	"go.micro.service.cart/handler"
 )
 
 var (
@@ -42,7 +42,7 @@ func main() {
 		}
 	})
 	//链路追踪
-	t, io, err := common.NewTracer("go.micro.service.cart", "10.10.50.59:6831")
+	t, io, err := common.NewTracer("github.com/yyystation/cart", "10.10.50.59:6831")
 	if err != nil {
 		log.Error(err)
 	}
@@ -65,7 +65,7 @@ func main() {
 	db.SingularTable(true)
 
 	//初始化
-	repository.NewCartRepository(db).InitTable()
+	// repository.NewCartRepository(db).InitTable()
 
 	// Create service
 	srv := micro.NewService(

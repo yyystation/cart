@@ -4,9 +4,9 @@ import (
 	"context"
 
 	"github.com/yyystation/common"
-	"go.micro.service.cart/domain/model"
-	"go.micro.service.cart/domain/service"
-	cart "go.micro.service.cart/proto"
+	"github.com/yyystation/cart/domain/model"
+	"github.com/yyystation/cart/domain/service"
+	cart "github.com/yyystation/cart/proto"
 )
 
 type Cart struct {
